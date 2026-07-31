@@ -17,23 +17,64 @@
   }
   .header {
     background: linear-gradient(180deg, #1a1a1a 0%, #0d0d0d 100%);
-    padding: 20px 16px 12px;
+    padding: 16px 16px 10px;
     text-align: center;
     border-bottom: 1px solid #222;
     position: sticky;
     top: 0;
     z-index: 100;
   }
+  .header-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
   .logo {
-    font-size: 26px;
+    font-size: 22px;
     font-weight: 800;
     color: #f5a623;
     letter-spacing: 3px;
   }
+  .cart-icon-btn {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #f5a623;
+    color: #1a1a1a;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 700;
+    transition: transform 0.1s;
+  }
+  .cart-icon-btn:active { transform: translateY(-50%) scale(0.95); }
+  .cart-count {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background: #ff4444;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   .tagline {
-    font-size: 12px;
+    font-size: 11px;
     color: #888;
-    margin-top: 4px;
+    margin-top: 2px;
   }
   .status {
     display: inline-flex;
@@ -41,14 +82,14 @@
     gap: 6px;
     background: rgba(74, 222, 128, 0.12);
     color: #4ade80;
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 600;
-    padding: 5px 14px;
+    padding: 4px 12px;
     border-radius: 20px;
-    margin-top: 10px;
+    margin-top: 8px;
   }
   .status-dot {
-    width: 6px; height: 6px;
+    width: 5px; height: 5px;
     background: #4ade80;
     border-radius: 50%;
     animation: pulse 2s infinite;
@@ -60,21 +101,21 @@
   .cat-scroll {
     display: flex;
     gap: 8px;
-    padding: 12px 16px;
+    padding: 10px 16px;
     overflow-x: auto;
     background: #0d0d0d;
     border-bottom: 1px solid #1a1a1a;
     position: sticky;
-    top: 88px;
+    top: 78px;
     z-index: 99;
     scrollbar-width: none;
   }
   .cat-scroll::-webkit-scrollbar { display: none; }
   .cat-btn {
     flex-shrink: 0;
-    padding: 8px 18px;
+    padding: 7px 16px;
     border-radius: 24px;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 600;
     cursor: pointer;
     border: 1.5px solid #333;
@@ -97,96 +138,82 @@
     color: #f5a623;
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    margin: 20px 0 12px;
+    margin: 18px 0 10px;
   }
   .hero-card {
     background: linear-gradient(135deg, #1a1208 0%, #0d0d0d 100%);
     border: 1.5px solid #f5a623;
     border-radius: 14px;
-    padding: 16px;
-    margin-bottom: 14px;
+    padding: 14px;
+    margin-bottom: 12px;
     position: relative;
   }
   .hero-badge {
     position: absolute;
     top: -10px;
-    left: 16px;
+    left: 14px;
     background: #f5a623;
     color: #1a1a1a;
     font-size: 10px;
     font-weight: 800;
-    padding: 4px 12px;
-    border-radius: 12px;
+    padding: 3px 10px;
+    border-radius: 10px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
   }
   .hero-title {
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 700;
-    margin-top: 8px;
+    margin-top: 6px;
   }
   .hero-desc {
     font-size: 12px;
     color: #aaa;
-    margin: 6px 0 10px;
-    line-height: 1.5;
+    margin: 4px 0 8px;
+    line-height: 1.4;
   }
   .hero-price-row {
     display: flex;
     align-items: baseline;
-    gap: 10px;
+    gap: 8px;
     flex-wrap: wrap;
   }
   .hero-price {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 800;
     color: #f5a623;
   }
   .hero-old {
-    font-size: 14px;
+    font-size: 13px;
     color: #555;
     text-decoration: line-through;
   }
   .hero-save {
-    font-size: 12px;
+    font-size: 11px;
     color: #4ade80;
     font-weight: 600;
   }
-  .btn-pedir-hero {
-    background: #f5a623;
-    color: #1a1a1a;
-    border: none;
-    padding: 12px;
-    border-radius: 10px;
-    font-size: 14px;
-    font-weight: 700;
-    cursor: pointer;
-    width: 100%;
-    margin-top: 12px;
-    transition: transform 0.1s;
-  }
-  .btn-pedir-hero:active { transform: scale(0.97); }
   .product-card {
     display: flex;
-    gap: 14px;
+    gap: 12px;
     background: #141414;
     border: 1px solid #222;
     border-radius: 12px;
-    padding: 14px;
+    padding: 12px;
     margin-bottom: 10px;
     transition: border-color 0.2s;
   }
   .product-card:active { border-color: #f5a623; }
   .product-img {
-    width: 68px;
-    height: 68px;
+    width: 60px;
+    height: 60px;
     background: #1e1e1e;
     border-radius: 10px;
     flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 32px;
+    font-size: 28px;
   }
   .product-info { flex: 1; min-width: 0; }
   .product-header {
@@ -194,61 +221,90 @@
     align-items: center;
     gap: 6px;
     flex-wrap: wrap;
-    margin-bottom: 3px;
+    margin-bottom: 2px;
   }
   .product-name {
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 700;
   }
   .tag {
     font-size: 9px;
     font-weight: 700;
-    padding: 2px 8px;
+    padding: 2px 7px;
     border-radius: 10px;
     text-transform: uppercase;
   }
   .tag-enc { background: rgba(245, 166, 35, 0.15); color: #f5a623; }
   .tag-veg { background: rgba(74, 222, 128, 0.15); color: #4ade80; }
   .product-desc {
-    font-size: 12px;
+    font-size: 11px;
     color: #777;
     line-height: 1.4;
     margin-bottom: 8px;
   }
-  .product-bottom {
+  .qty-controls {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    gap: 6px;
   }
-  .product-price {
-    font-size: 18px;
-    font-weight: 800;
+  .qty-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    border: 1px solid #444;
+    background: #1e1e1e;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s;
+  }
+  .qty-btn:active { background: #f5a623; color: #1a1a1a; border-color: #f5a623; }
+  .qty-display {
+    min-width: 24px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
     color: #f5a623;
   }
-  .btn-pedir {
+  .btn-add {
     background: #f5a623;
     color: #1a1a1a;
     border: none;
-    padding: 8px 18px;
+    padding: 6px 14px;
     border-radius: 8px;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 700;
     cursor: pointer;
     transition: transform 0.1s;
+    margin-left: 6px;
   }
-  .btn-pedir:active { transform: scale(0.95); }
+  .btn-add:active { transform: scale(0.95); }
+  .btn-add.added {
+    background: #4ade80;
+    color: #1a1a1a;
+  }
+  .product-price {
+    font-size: 16px;
+    font-weight: 800;
+    color: #f5a623;
+    margin-bottom: 6px;
+  }
   .pay-section {
     background: #141414;
     border-radius: 12px;
-    padding: 16px;
-    margin-top: 16px;
+    padding: 14px;
+    margin-top: 14px;
     border: 1px solid #222;
   }
   .pay-title {
     font-size: 13px;
     font-weight: 700;
     color: #f5a623;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
   .pay-pills {
     display: flex;
@@ -260,14 +316,14 @@
     color: #bbb;
     font-size: 12px;
     font-weight: 500;
-    padding: 6px 14px;
+    padding: 5px 12px;
     border-radius: 20px;
     border: 1px solid #333;
   }
   .info-text {
     font-size: 12px;
     color: #666;
-    margin-top: 12px;
+    margin-top: 10px;
     line-height: 1.6;
   }
   .footer-fixed {
@@ -276,7 +332,7 @@
     left: 0;
     right: 0;
     background: linear-gradient(180deg, transparent 0%, #0a0a0a 30%);
-    padding: 20px 16px 16px;
+    padding: 16px 16px 14px;
     z-index: 100;
   }
   .btn-whatsapp {
@@ -303,12 +359,164 @@
     fill: currentColor;
   }
   .hidden { display: none; }
+
+  /* CART DRAWER */
+  .cart-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 200;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+  .cart-overlay.open {
+    opacity: 1;
+    visibility: visible;
+  }
+  .cart-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: 380px;
+    background: #141414;
+    z-index: 201;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .cart-drawer.open {
+    transform: translateX(0);
+  }
+  .cart-header {
+    padding: 16px;
+    border-bottom: 1px solid #222;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .cart-header h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #f5a623;
+  }
+  .cart-close {
+    background: none;
+    border: none;
+    color: #888;
+    font-size: 24px;
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .cart-items {
+    flex: 1;
+    overflow-y: auto;
+    padding: 12px 16px;
+  }
+  .cart-empty {
+    text-align: center;
+    color: #555;
+    font-size: 14px;
+    padding: 40px 20px;
+  }
+  .cart-item {
+    display: flex;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid #222;
+  }
+  .cart-item-img {
+    width: 44px;
+    height: 44px;
+    background: #1e1e1e;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+  .cart-item-info { flex: 1; }
+  .cart-item-name {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+  .cart-item-price {
+    font-size: 12px;
+    color: #f5a623;
+    font-weight: 700;
+  }
+  .cart-item-qty {
+    font-size: 11px;
+    color: #888;
+  }
+  .cart-item-total {
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    align-self: center;
+  }
+  .cart-footer {
+    padding: 16px;
+    border-top: 1px solid #222;
+    background: #0d0d0d;
+  }
+  .cart-total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  .cart-total-label {
+    font-size: 14px;
+    color: #aaa;
+  }
+  .cart-total-value {
+    font-size: 22px;
+    font-weight: 800;
+    color: #f5a623;
+  }
+  .btn-finalizar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #25d366;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 14px;
+    border-radius: 12px;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+  }
+  .btn-finalizar svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+  }
 </style>
+<base target="_blank">
 </head>
 <body>
 
 <div class="header">
-  <div class="logo">HICK.LANSHI</div>
+  <div class="header-top">
+    <div class="logo">HICK.LANSHI</div>
+    <button class="cart-icon-btn" onclick="openCart()">
+      🛒
+      <span class="cart-count" id="cartCount" style="display:none">0</span>
+    </button>
+  </div>
   <div class="tagline">Hambúrguer de salmão com arroz empanado</div>
   <div class="status">
     <div class="status-dot"></div>
@@ -328,36 +536,38 @@
 
   <div id="cat-lanshi" class="cat-section">
     <div class="section-title">⭐ O carro-chefe</div>
-    
-    <div class="product-card">
+
+    <div class="product-card" data-name="Lanshi de Salmão Cru" data-price="34.90" data-icon="🍔">
       <div class="product-img">🍔</div>
       <div class="product-info">
-        <div class="product-header">
-          <span class="product-name">Lanshi de Salmão Cru</span>
-        </div>
+        <div class="product-header"><span class="product-name">Lanshi de Salmão Cru</span></div>
         <div class="product-desc">Arroz empanado, salmão cru, cream cheese, cebola roxa, pepino, alga, gergelim e cebolinha</div>
-        <div class="product-bottom">
-          <span class="product-price">R$ 34,90</span>
-          <button class="btn-pedir" onclick="pedir('Lanshi de Salmão Cru')">Pedir</button>
+        <div class="product-price">R$ 34,90</div>
+        <div class="qty-controls">
+          <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+          <span class="qty-display">0</span>
+          <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+          <button class="btn-add" onclick="addToCart(this)">Adicionar</button>
         </div>
       </div>
     </div>
-    
-    <div class="product-card">
+
+    <div class="product-card" data-name="Lanshi de Salmão Grelhado" data-price="34.90" data-icon="🍔">
       <div class="product-img">🍔</div>
       <div class="product-info">
-        <div class="product-header">
-          <span class="product-name">Lanshi de Salmão Grelhado</span>
-        </div>
+        <div class="product-header"><span class="product-name">Lanshi de Salmão Grelhado</span></div>
         <div class="product-desc">Arroz empanado, salmão grelhado, cream cheese, cebola roxa, pepino, alga, gergelim e cebolinha</div>
-        <div class="product-bottom">
-          <span class="product-price">R$ 34,90</span>
-          <button class="btn-pedir" onclick="pedir('Lanshi de Salmão Grelhado')">Pedir</button>
+        <div class="product-price">R$ 34,90</div>
+        <div class="qty-controls">
+          <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+          <span class="qty-display">0</span>
+          <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+          <button class="btn-add" onclick="addToCart(this)">Adicionar</button>
         </div>
       </div>
     </div>
-    
-    <div class="product-card">
+
+    <div class="product-card" data-name="Lanshi de Camarão" data-price="37.90" data-icon="🍤">
       <div class="product-img">🍤</div>
       <div class="product-info">
         <div class="product-header">
@@ -365,14 +575,17 @@
           <span class="tag tag-enc">Só encomenda</span>
         </div>
         <div class="product-desc">Arroz empanado, camarão frito, cream cheese, cebola roxa, pepino, alga, gergelim e cebolinha</div>
-        <div class="product-bottom">
-          <span class="product-price">R$ 37,90</span>
-          <button class="btn-pedir" onclick="pedir('Lanshi de Camarão')">Pedir</button>
+        <div class="product-price">R$ 37,90</div>
+        <div class="qty-controls">
+          <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+          <span class="qty-display">0</span>
+          <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+          <button class="btn-add" onclick="addToCart(this)">Adicionar</button>
         </div>
       </div>
     </div>
-    
-    <div class="product-card">
+
+    <div class="product-card" data-name="Lanshi de Shimeji" data-price="29.90" data-icon="🍄">
       <div class="product-img">🍄</div>
       <div class="product-info">
         <div class="product-header">
@@ -380,14 +593,17 @@
           <span class="tag tag-veg">Vegetariano</span>
         </div>
         <div class="product-desc">Arroz empanado, shimeji, cream cheese, cebola roxa, pepino, alga, gergelim e cebolinha</div>
-        <div class="product-bottom">
-          <span class="product-price">R$ 29,90</span>
-          <button class="btn-pedir" onclick="pedir('Lanshi de Shimeji')">Pedir</button>
+        <div class="product-price">R$ 29,90</div>
+        <div class="qty-controls">
+          <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+          <span class="qty-display">0</span>
+          <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+          <button class="btn-add" onclick="addToCart(this)">Adicionar</button>
         </div>
       </div>
     </div>
-    
-    <div class="product-card">
+
+    <div class="product-card" data-name="Lanshi Misto" data-price="39.90" data-icon="🍔">
       <div class="product-img">🍔</div>
       <div class="product-info">
         <div class="product-header">
@@ -395,9 +611,12 @@
           <span class="tag tag-enc">Só encomenda</span>
         </div>
         <div class="product-desc">Arroz empanado, salmão (cru ou grelhado) + camarão, cream cheese e vegetais. O mais completo da casa.</div>
-        <div class="product-bottom">
-          <span class="product-price">R$ 39,90</span>
-          <button class="btn-pedir" onclick="pedir('Lanshi Misto')">Pedir</button>
+        <div class="product-price">R$ 39,90</div>
+        <div class="qty-controls">
+          <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+          <span class="qty-display">0</span>
+          <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+          <button class="btn-add" onclick="addToCart(this)">Adicionar</button>
         </div>
       </div>
     </div>
@@ -405,36 +624,38 @@
 
   <div id="cat-sushi" class="cat-section hidden">
     <div class="section-title">🍣 Sushi — 10 unidades</div>
-    
-    <div class="product-card">
+
+    <div class="product-card" data-name="Sushi Salmão Cru" data-price="28.90" data-icon="🍣">
       <div class="product-img">🍣</div>
       <div class="product-info">
-        <div class="product-header">
-          <span class="product-name">Sushi Salmão Cru</span>
-        </div>
+        <div class="product-header"><span class="product-name">Sushi Salmão Cru</span></div>
         <div class="product-desc">Arroz, salmão cru, cream cheese, alga, gergelim e cebolinha</div>
-        <div class="product-bottom">
-          <span class="product-price">R$ 28,90</span>
-          <button class="btn-pedir" onclick="pedir('Sushi Salmão Cru')">Pedir</button>
+        <div class="product-price">R$ 28,90</div>
+        <div class="qty-controls">
+          <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+          <span class="qty-display">0</span>
+          <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+          <button class="btn-add" onclick="addToCart(this)">Adicionar</button>
         </div>
       </div>
     </div>
-    
-    <div class="product-card">
+
+    <div class="product-card" data-name="Sushi Salmão Grelhado" data-price="28.90" data-icon="🍣">
       <div class="product-img">🍣</div>
       <div class="product-info">
-        <div class="product-header">
-          <span class="product-name">Sushi Salmão Grelhado</span>
-        </div>
+        <div class="product-header"><span class="product-name">Sushi Salmão Grelhado</span></div>
         <div class="product-desc">Arroz, salmão grelhado, cream cheese, alga, gergelim e cebolinha</div>
-        <div class="product-bottom">
-          <span class="product-price">R$ 28,90</span>
-          <button class="btn-pedir" onclick="pedir('Sushi Salmão Grelhado')">Pedir</button>
+        <div class="product-price">R$ 28,90</div>
+        <div class="qty-controls">
+          <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+          <span class="qty-display">0</span>
+          <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+          <button class="btn-add" onclick="addToCart(this)">Adicionar</button>
         </div>
       </div>
     </div>
-    
-    <div class="product-card">
+
+    <div class="product-card" data-name="Sushi Camarão" data-price="33.90" data-icon="🍤">
       <div class="product-img">🍤</div>
       <div class="product-info">
         <div class="product-header">
@@ -442,14 +663,17 @@
           <span class="tag tag-enc">Só encomenda</span>
         </div>
         <div class="product-desc">Arroz, camarão empanado, alga, cream cheese, gergelim e cebolinha</div>
-        <div class="product-bottom">
-          <span class="product-price">R$ 33,90</span>
-          <button class="btn-pedir" onclick="pedir('Sushi Camarão')">Pedir</button>
+        <div class="product-price">R$ 33,90</div>
+        <div class="qty-controls">
+          <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+          <span class="qty-display">0</span>
+          <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+          <button class="btn-add" onclick="addToCart(this)">Adicionar</button>
         </div>
       </div>
     </div>
-    
-    <div class="product-card">
+
+    <div class="product-card" data-name="Sushi Califórnia" data-price="27.90" data-icon="🥗">
       <div class="product-img">🥗</div>
       <div class="product-info">
         <div class="product-header">
@@ -457,9 +681,12 @@
           <span class="tag tag-veg">Vegetariano</span>
         </div>
         <div class="product-desc">Arroz, alga, cream cheese, pepino, manga, cenoura, gergelim e cebolinha</div>
-        <div class="product-bottom">
-          <span class="product-price">R$ 27,90</span>
-          <button class="btn-pedir" onclick="pedir('Sushi Califórnia')">Pedir</button>
+        <div class="product-price">R$ 27,90</div>
+        <div class="qty-controls">
+          <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+          <span class="qty-display">0</span>
+          <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+          <button class="btn-add" onclick="addToCart(this)">Adicionar</button>
         </div>
       </div>
     </div>
@@ -467,50 +694,53 @@
 
   <div id="cat-hot" class="cat-section hidden">
     <div class="section-title">🔥 Hot Holl & Hot Maki</div>
-    
-    <div class="product-card">
+
+    <div class="product-card" data-name="Hot Holl Salmão Cru" data-price="31.90" data-icon="🔥">
       <div class="product-img">🔥</div>
       <div class="product-info">
-        <div class="product-header">
-          <span class="product-name">Hot Holl Salmão Cru</span>
-        </div>
+        <div class="product-header"><span class="product-name">Hot Holl Salmão Cru</span></div>
         <div class="product-desc">Arroz, salmão cru, alga, cream cheese, gergelim e cebolinha</div>
-        <div class="product-bottom">
-          <span class="product-price">R$ 31,90</span>
-          <button class="btn-pedir" onclick="pedir('Hot Holl Salmão Cru')">Pedir</button>
+        <div class="product-price">R$ 31,90</div>
+        <div class="qty-controls">
+          <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+          <span class="qty-display">0</span>
+          <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+          <button class="btn-add" onclick="addToCart(this)">Adicionar</button>
         </div>
       </div>
     </div>
-    
-    <div class="product-card">
+
+    <div class="product-card" data-name="Hot Holl Salmão Grelhado" data-price="31.90" data-icon="🔥">
       <div class="product-img">🔥</div>
       <div class="product-info">
-        <div class="product-header">
-          <span class="product-name">Hot Holl Salmão Grelhado</span>
-        </div>
+        <div class="product-header"><span class="product-name">Hot Holl Salmão Grelhado</span></div>
         <div class="product-desc">Arroz, salmão grelhado, alga, cream cheese, gergelim e cebolinha</div>
-        <div class="product-bottom">
-          <span class="product-price">R$ 31,90</span>
-          <button class="btn-pedir" onclick="pedir('Hot Holl Salmão Grelhado')">Pedir</button>
+        <div class="product-price">R$ 31,90</div>
+        <div class="qty-controls">
+          <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+          <span class="qty-display">0</span>
+          <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+          <button class="btn-add" onclick="addToCart(this)">Adicionar</button>
         </div>
       </div>
     </div>
-    
-    <div class="product-card">
+
+    <div class="product-card" data-name="Hot Maki Salmão Grelhado" data-price="36.90" data-icon="🌯">
       <div class="product-img">🌯</div>
       <div class="product-info">
-        <div class="product-header">
-          <span class="product-name">Hot Maki Salmão Grelhado</span>
-        </div>
+        <div class="product-header"><span class="product-name">Hot Maki Salmão Grelhado</span></div>
         <div class="product-desc">Temaki empanado e frito com salmão grelhado, alga, cream cheese, gergelim e cebolinha</div>
-        <div class="product-bottom">
-          <span class="product-price">R$ 36,90</span>
-          <button class="btn-pedir" onclick="pedir('Hot Maki Salmão Grelhado')">Pedir</button>
+        <div class="product-price">R$ 36,90</div>
+        <div class="qty-controls">
+          <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+          <span class="qty-display">0</span>
+          <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+          <button class="btn-add" onclick="addToCart(this)">Adicionar</button>
         </div>
       </div>
     </div>
-    
-    <div class="product-card">
+
+    <div class="product-card" data-name="Hot Maki Camarão" data-price="39.90" data-icon="🍤">
       <div class="product-img">🍤</div>
       <div class="product-info">
         <div class="product-header">
@@ -518,9 +748,12 @@
           <span class="tag tag-enc">Só encomenda</span>
         </div>
         <div class="product-desc">Temaki empanado e frito com camarão, alga, cream cheese, gergelim e cebolinha</div>
-        <div class="product-bottom">
-          <span class="product-price">R$ 39,90</span>
-          <button class="btn-pedir" onclick="pedir('Hot Maki Camarão')">Pedir</button>
+        <div class="product-price">R$ 39,90</div>
+        <div class="qty-controls">
+          <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+          <span class="qty-display">0</span>
+          <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+          <button class="btn-add" onclick="addToCart(this)">Adicionar</button>
         </div>
       </div>
     </div>
@@ -528,36 +761,38 @@
 
   <div id="cat-temaki" class="cat-section hidden">
     <div class="section-title">🌯 Temaki</div>
-    
-    <div class="product-card">
+
+    <div class="product-card" data-name="Temaki Salmão Cru" data-price="32.90" data-icon="🌯">
       <div class="product-img">🌯</div>
       <div class="product-info">
-        <div class="product-header">
-          <span class="product-name">Temaki Salmão Cru</span>
-        </div>
+        <div class="product-header"><span class="product-name">Temaki Salmão Cru</span></div>
         <div class="product-desc">Arroz, salmão cru, cream cheese, alga, gergelim e cebolinha</div>
-        <div class="product-bottom">
-          <span class="product-price">R$ 32,90</span>
-          <button class="btn-pedir" onclick="pedir('Temaki Salmão Cru')">Pedir</button>
+        <div class="product-price">R$ 32,90</div>
+        <div class="qty-controls">
+          <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+          <span class="qty-display">0</span>
+          <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+          <button class="btn-add" onclick="addToCart(this)">Adicionar</button>
         </div>
       </div>
     </div>
-    
-    <div class="product-card">
+
+    <div class="product-card" data-name="Temaki Salmão Grelhado" data-price="32.90" data-icon="🌯">
       <div class="product-img">🌯</div>
       <div class="product-info">
-        <div class="product-header">
-          <span class="product-name">Temaki Salmão Grelhado</span>
-        </div>
+        <div class="product-header"><span class="product-name">Temaki Salmão Grelhado</span></div>
         <div class="product-desc">Arroz, salmão grelhado, cream cheese, alga, gergelim e cebolinha</div>
-        <div class="product-bottom">
-          <span class="product-price">R$ 32,90</span>
-          <button class="btn-pedir" onclick="pedir('Temaki Salmão Grelhado')">Pedir</button>
+        <div class="product-price">R$ 32,90</div>
+        <div class="qty-controls">
+          <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+          <span class="qty-display">0</span>
+          <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+          <button class="btn-add" onclick="addToCart(this)">Adicionar</button>
         </div>
       </div>
     </div>
-    
-    <div class="product-card">
+
+    <div class="product-card" data-name="Temaki Califórnia" data-price="29.90" data-icon="🥗">
       <div class="product-img">🥗</div>
       <div class="product-info">
         <div class="product-header">
@@ -565,9 +800,12 @@
           <span class="tag tag-veg">Vegetariano</span>
         </div>
         <div class="product-desc">Arroz, alga, cream cheese, shimeji, pepino, manga, cenoura, gergelim e cebolinha</div>
-        <div class="product-bottom">
-          <span class="product-price">R$ 29,90</span>
-          <button class="btn-pedir" onclick="pedir('Temaki Califórnia')">Pedir</button>
+        <div class="product-price">R$ 29,90</div>
+        <div class="qty-controls">
+          <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+          <span class="qty-display">0</span>
+          <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+          <button class="btn-add" onclick="addToCart(this)">Adicionar</button>
         </div>
       </div>
     </div>
@@ -575,31 +813,43 @@
 
   <div id="cat-combos" class="cat-section hidden">
     <div class="section-title">💚 Combos e Promoções</div>
-    
-    <div class="hero-card">
-      <div class="hero-badge">🔥 Mais vendido</div>
-      <div class="hero-title">Combo Casal</div>
-      <div class="hero-desc">2 Lanshis (cru ou grelhado) + 2 Refrigerantes</div>
-      <div class="hero-price-row">
-        <span class="hero-price">R$ 74,90</span>
-        <span class="hero-old">R$ 84,80</span>
+
+    <div class="product-card" data-name="Combo Casal" data-price="74.90" data-icon="🍔">
+      <div class="product-img">🍔</div>
+      <div class="product-info">
+        <div class="product-header">
+          <span class="product-name">Combo Casal</span>
+          <span class="tag tag-enc">🔥 Mais vendido</span>
+        </div>
+        <div class="product-desc">2 Lanshis (cru ou grelhado) + 2 Refrigerantes</div>
+        <div class="product-price">R$ 74,90 <span style="font-size:12px;color:#555;text-decoration:line-through;">R$ 84,80</span></div>
+        <div class="qty-controls">
+          <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+          <span class="qty-display">0</span>
+          <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+          <button class="btn-add" onclick="addToCart(this)">Adicionar</button>
+        </div>
       </div>
-      <div class="hero-save">💚 Economize R$ 9,90</div>
-      <button class="btn-pedir-hero" onclick="pedir('Combo Casal')">Pedir combo</button>
     </div>
-    
-    <div class="hero-card" style="border-color:#4ade80;">
-      <div class="hero-badge" style="background:#4ade80; color:#1a1a1a;">💚 Vegetariano</div>
-      <div class="hero-title">Combo Green</div>
-      <div class="hero-desc">1 Lanshi de Shimeji + 1 Sushi Califórnia + 1 Refrigerante</div>
-      <div class="hero-price-row">
-        <span class="hero-price">R$ 64,90</span>
-        <span class="hero-old">R$ 72,80</span>
+
+    <div class="product-card" data-name="Combo Green" data-price="64.90" data-icon="🍄">
+      <div class="product-img">🍄</div>
+      <div class="product-info">
+        <div class="product-header">
+          <span class="product-name">Combo Green</span>
+          <span class="tag tag-veg">Vegetariano</span>
+        </div>
+        <div class="product-desc">1 Lanshi de Shimeji + 1 Sushi Califórnia + 1 Refrigerante</div>
+        <div class="product-price">R$ 64,90 <span style="font-size:12px;color:#555;text-decoration:line-through;">R$ 72,80</span></div>
+        <div class="qty-controls">
+          <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+          <span class="qty-display">0</span>
+          <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+          <button class="btn-add" onclick="addToCart(this)">Adicionar</button>
+        </div>
       </div>
-      <div class="hero-save">💚 Economize R$ 7,90</div>
-      <button class="btn-pedir-hero" onclick="pedir('Combo Green')">Pedir combo</button>
     </div>
-    
+
     <div class="pay-section">
       <div class="pay-title">💳 Formas de pagamento</div>
       <div class="pay-pills">
@@ -618,28 +868,164 @@
 
 </div>
 
+<!-- CART DRAWER -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-header">
+    <h2>🛒 Seu pedido</h2>
+    <button class="cart-close" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty">Seu carrinho está vazio.<br>Adicione itens do cardápio!</div>
+  </div>
+  <div class="cart-footer">
+    <div class="cart-total-row">
+      <span class="cart-total-label">Total</span>
+      <span class="cart-total-value" id="cartTotal">R$ 0,00</span>
+    </div>
+    <button class="btn-finalizar" onclick="sendOrder()">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Enviar pedido pelo WhatsApp
+    </button>
+  </div>
+</div>
+
+<!-- FOOTER WHATSAPP -->
 <div class="footer-fixed">
-  <button class="btn-whatsapp" onclick="pedir('')">
+  <button class="btn-whatsapp" onclick="openCart()">
     <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-    Fazer pedido pelo WhatsApp
+    Ver carrinho e finalizar pedido
   </button>
 </div>
 
 <script>
+  let cart = [];
+
   function showCat(catId, btn) {
     document.querySelectorAll('.cat-section').forEach(s => s.classList.add('hidden'));
     document.getElementById('cat-' + catId).classList.remove('hidden');
     document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
   }
-  function pedir(item) {
-    const numero = '5511957283370';
-    let msg;
-    if (item) {
-      msg = 'Oi! Vi no cardápio digital e quero pedir: ' + item;
-    } else {
-      msg = 'Oi! Vi o cardápio digital e quero fazer um pedido no HICK.LANSHI 🍔';
+
+  function changeQty(btn, delta) {
+    const card = btn.closest('.product-card');
+    const display = card.querySelector('.qty-display');
+    let val = parseInt(display.textContent) + delta;
+    if (val < 0) val = 0;
+    if (val > 20) val = 20;
+    display.textContent = val;
+  }
+
+  function addToCart(btn) {
+    const card = btn.closest('.product-card');
+    const name = card.dataset.name;
+    const price = parseFloat(card.dataset.price);
+    const icon = card.dataset.icon;
+    const display = card.querySelector('.qty-display');
+    const qty = parseInt(display.textContent);
+
+    if (qty === 0) {
+      display.textContent = 1;
     }
+    const finalQty = qty === 0 ? 1 : qty;
+
+    const existing = cart.find(item => item.name === name);
+    if (existing) {
+      existing.qty += finalQty;
+    } else {
+      cart.push({ name, price, icon, qty: finalQty });
+    }
+
+    btn.textContent = '✓ Adicionado';
+    btn.classList.add('added');
+    setTimeout(() => {
+      btn.textContent = 'Adicionar';
+      btn.classList.remove('added');
+    }, 1200);
+
+    updateCartUI();
+  }
+
+  function updateCartUI() {
+    const count = cart.reduce((sum, item) => sum + item.qty, 0);
+    const badge = document.getElementById('cartCount');
+    if (count > 0) {
+      badge.textContent = count;
+      badge.style.display = 'flex';
+    } else {
+      badge.style.display = 'none';
+    }
+    renderCartItems();
+  }
+
+  function renderCartItems() {
+    const container = document.getElementById('cartItems');
+    const totalEl = document.getElementById('cartTotal');
+
+    if (cart.length === 0) {
+      container.innerHTML = '<div class="cart-empty">Seu carrinho está vazio.<br>Adicione itens do cardápio!</div>';
+      totalEl.textContent = 'R$ 0,00';
+      return;
+    }
+
+    let total = 0;
+    let html = '';
+    cart.forEach((item, index) => {
+      const itemTotal = item.price * item.qty;
+      total += itemTotal;
+      html += `
+        <div class="cart-item">
+          <div class="cart-item-img">${item.icon}</div>
+          <div class="cart-item-info">
+            <div class="cart-item-name">${item.name}</div>
+            <div class="cart-item-price">R$ ${item.price.toFixed(2).replace('.', ',')}</div>
+            <div class="cart-item-qty">Qtd: ${item.qty}</div>
+          </div>
+          <div class="cart-item-total">R$ ${itemTotal.toFixed(2).replace('.', ',')}</div>
+        </div>
+      `;
+    });
+
+    container.innerHTML = html;
+    totalEl.textContent = 'R$ ' + total.toFixed(2).replace('.', ',');
+  }
+
+  function openCart() {
+    document.getElementById('cartOverlay').classList.add('open');
+    document.getElementById('cartDrawer').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeCart() {
+    document.getElementById('cartOverlay').classList.remove('open');
+    document.getElementById('cartDrawer').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function sendOrder() {
+    if (cart.length === 0) {
+      alert('Seu carrinho está vazio! Adicione itens antes de enviar.');
+      return;
+    }
+
+    const numero = '5511957283370';
+    let total = 0;
+    let msg = 'Oi! Quero fazer um pedido no HICK.LANSHI 🍔\n\n';
+    msg += '📋 *MEU PEDIDO:*\n';
+    msg += '─────────────────\n';
+
+    cart.forEach(item => {
+      const itemTotal = item.price * item.qty;
+      total += itemTotal;
+      msg += `• ${item.name}\n`;
+      msg += `  ${item.qty}x R$ ${item.price.toFixed(2).replace('.', ',')} = R$ ${itemTotal.toFixed(2).replace('.', ',')}\n\n`;
+    });
+
+    msg += '─────────────────\n';
+    msg += `💰 *TOTAL: R$ ${total.toFixed(2).replace('.', ',')}*\n\n`;
+    msg += 'Aguardo confirmação! 😊';
+
     const url = 'https://wa.me/' + numero + '?text=' + encodeURIComponent(msg);
     window.open(url, '_blank');
   }
