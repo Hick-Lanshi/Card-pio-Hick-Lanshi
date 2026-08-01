@@ -140,59 +140,6 @@
     letter-spacing: 1.5px;
     margin: 18px 0 10px;
   }
-  .hero-card {
-    background: linear-gradient(135deg, #1a1208 0%, #0d0d0d 100%);
-    border: 1.5px solid #f5a623;
-    border-radius: 14px;
-    padding: 14px;
-    margin-bottom: 12px;
-    position: relative;
-  }
-  .hero-badge {
-    position: absolute;
-    top: -10px;
-    left: 14px;
-    background: #f5a623;
-    color: #1a1a1a;
-    font-size: 10px;
-    font-weight: 800;
-    padding: 3px 10px;
-    border-radius: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-  .hero-title {
-    font-size: 16px;
-    font-weight: 700;
-    margin-top: 6px;
-  }
-  .hero-desc {
-    font-size: 12px;
-    color: #aaa;
-    margin: 4px 0 8px;
-    line-height: 1.4;
-  }
-  .hero-price-row {
-    display: flex;
-    align-items: baseline;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
-  .hero-price {
-    font-size: 22px;
-    font-weight: 800;
-    color: #f5a623;
-  }
-  .hero-old {
-    font-size: 13px;
-    color: #555;
-    text-decoration: line-through;
-  }
-  .hero-save {
-    font-size: 11px;
-    color: #4ade80;
-    font-weight: 600;
-  }
   .product-card {
     display: flex;
     gap: 12px;
@@ -205,15 +152,34 @@
   }
   .product-card:active { border-color: #f5a623; }
   .product-img {
-    width: 60px;
-    height: 60px;
+    width: 72px;
+    height: 72px;
     background: #1e1e1e;
     border-radius: 10px;
     flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 28px;
+    font-size: 32px;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+  }
+  .product-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  .product-img .zoom-hint {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    font-size: 9px;
+    padding: 1px 5px;
+    border-radius: 4px;
   }
   .product-info { flex: 1; min-width: 0; }
   .product-header {
@@ -236,11 +202,12 @@
   }
   .tag-enc { background: rgba(245, 166, 35, 0.15); color: #f5a623; }
   .tag-veg { background: rgba(74, 222, 128, 0.15); color: #4ade80; }
+  .tag-promo { background: rgba(255, 68, 68, 0.15); color: #ff4444; }
   .product-desc {
     font-size: 11px;
     color: #777;
     line-height: 1.4;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
   }
   .qty-controls {
     display: flex;
@@ -380,7 +347,7 @@
     right: 0;
     bottom: 0;
     width: 100%;
-    max-width: 380px;
+    max-width: 400px;
     background: #141414;
     z-index: 201;
     transform: translateX(100%);
@@ -431,6 +398,7 @@
     gap: 10px;
     padding: 10px 0;
     border-bottom: 1px solid #222;
+    align-items: center;
   }
   .cart-item-img {
     width: 44px;
@@ -442,27 +410,67 @@
     justify-content: center;
     font-size: 22px;
     flex-shrink: 0;
+    overflow: hidden;
   }
-  .cart-item-info { flex: 1; }
+  .cart-item-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .cart-item-info { flex: 1; min-width: 0; }
   .cart-item-name {
     font-size: 13px;
     font-weight: 600;
     margin-bottom: 2px;
   }
   .cart-item-price {
-    font-size: 12px;
+    font-size: 11px;
     color: #f5a623;
     font-weight: 700;
   }
-  .cart-item-qty {
-    font-size: 11px;
-    color: #888;
+  .cart-item-qty-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 6px;
+  }
+  .cart-qty-btn {
+    width: 24px;
+    height: 24px;
+    border-radius: 5px;
+    border: 1px solid #444;
+    background: #1e1e1e;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .cart-qty-btn:active { background: #f5a623; color: #1a1a1a; }
+  .cart-qty-display {
+    min-width: 20px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: #f5a623;
   }
   .cart-item-total {
     font-size: 13px;
     font-weight: 700;
     color: #fff;
-    align-self: center;
+    text-align: right;
+    min-width: 60px;
+  }
+  .cart-item-remove {
+    background: none;
+    border: none;
+    color: #ff4444;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 4px;
+    margin-left: 4px;
   }
   .cart-footer {
     padding: 16px;
@@ -504,6 +512,58 @@
     height: 20px;
     fill: currentColor;
   }
+
+  /* IMAGE MODAL */
+  .img-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.92);
+    z-index: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    padding: 20px;
+  }
+  .img-modal-overlay.open {
+    opacity: 1;
+    visibility: visible;
+  }
+  .img-modal-content {
+    position: relative;
+    max-width: 100%;
+    max-height: 80vh;
+  }
+  .img-modal-content img {
+    max-width: 100%;
+    max-height: 80vh;
+    border-radius: 12px;
+    object-fit: contain;
+  }
+  .img-modal-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 28px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .img-modal-caption {
+    text-align: center;
+    color: #aaa;
+    font-size: 14px;
+    margin-top: 12px;
+    font-weight: 500;
+  }
 </style>
 <base target="_blank">
 </head>
@@ -529,16 +589,23 @@
   <div class="cat-btn" onclick="showCat('sushi', this)">🍣 Sushi</div>
   <div class="cat-btn" onclick="showCat('hot', this)">🔥 Hot</div>
   <div class="cat-btn" onclick="showCat('temaki', this)">🌯 Temaki</div>
+  <div class="cat-btn" onclick="showCat('bebidas', this)">🥤 Bebidas</div>
   <div class="cat-btn" onclick="showCat('combos', this)">💚 Combos</div>
+  <div class="cat-btn" onclick="showCat('yakisoba', this)">🍜 Yakisoba</div>
+  <div class="cat-btn" onclick="showCat('onigiri', this)">🍙 Onigiri</div>
 </div>
 
 <div class="content">
 
+  <!-- LANSHI -->
   <div id="cat-lanshi" class="cat-section">
     <div class="section-title">⭐ O carro-chefe</div>
 
     <div class="product-card" data-name="Lanshi de Salmão Cru" data-price="34.90" data-icon="🍔">
-      <div class="product-img">🍔</div>
+      <div class="product-img" onclick="openImage(this, 'Lanshi de Salmão Cru')">
+        🍔
+        <span class="zoom-hint">🔍</span>
+      </div>
       <div class="product-info">
         <div class="product-header"><span class="product-name">Lanshi de Salmão Cru</span></div>
         <div class="product-desc">Arroz empanado, salmão cru, cream cheese, cebola roxa, pepino, alga, gergelim e cebolinha</div>
@@ -553,7 +620,10 @@
     </div>
 
     <div class="product-card" data-name="Lanshi de Salmão Grelhado" data-price="34.90" data-icon="🍔">
-      <div class="product-img">🍔</div>
+      <div class="product-img" onclick="openImage(this, 'Lanshi de Salmão Grelhado')">
+        🍔
+        <span class="zoom-hint">🔍</span>
+      </div>
       <div class="product-info">
         <div class="product-header"><span class="product-name">Lanshi de Salmão Grelhado</span></div>
         <div class="product-desc">Arroz empanado, salmão grelhado, cream cheese, cebola roxa, pepino, alga, gergelim e cebolinha</div>
@@ -568,7 +638,10 @@
     </div>
 
     <div class="product-card" data-name="Lanshi de Camarão" data-price="37.90" data-icon="🍤">
-      <div class="product-img">🍤</div>
+      <div class="product-img" onclick="openImage(this, 'Lanshi de Camarão')">
+        🍤
+        <span class="zoom-hint">🔍</span>
+      </div>
       <div class="product-info">
         <div class="product-header">
           <span class="product-name">Lanshi de Camarão</span>
@@ -586,7 +659,10 @@
     </div>
 
     <div class="product-card" data-name="Lanshi de Shimeji" data-price="29.90" data-icon="🍄">
-      <div class="product-img">🍄</div>
+      <div class="product-img" onclick="openImage(this, 'Lanshi de Shimeji')">
+        🍄
+        <span class="zoom-hint">🔍</span>
+      </div>
       <div class="product-info">
         <div class="product-header">
           <span class="product-name">Lanshi de Shimeji</span>
@@ -604,7 +680,10 @@
     </div>
 
     <div class="product-card" data-name="Lanshi Misto" data-price="39.90" data-icon="🍔">
-      <div class="product-img">🍔</div>
+      <div class="product-img" onclick="openImage(this, 'Lanshi Misto')">
+        🍔
+        <span class="zoom-hint">🔍</span>
+      </div>
       <div class="product-info">
         <div class="product-header">
           <span class="product-name">Lanshi Misto</span>
@@ -622,11 +701,15 @@
     </div>
   </div>
 
+  <!-- SUSHI -->
   <div id="cat-sushi" class="cat-section hidden">
     <div class="section-title">🍣 Sushi — 10 unidades</div>
 
     <div class="product-card" data-name="Sushi Salmão Cru" data-price="28.90" data-icon="🍣">
-      <div class="product-img">🍣</div>
+      <div class="product-img" onclick="openImage(this, 'Sushi Salmão Cru')">
+        🍣
+        <span class="zoom-hint">🔍</span>
+      </div>
       <div class="product-info">
         <div class="product-header"><span class="product-name">Sushi Salmão Cru</span></div>
         <div class="product-desc">Arroz, salmão cru, cream cheese, alga, gergelim e cebolinha</div>
@@ -641,7 +724,10 @@
     </div>
 
     <div class="product-card" data-name="Sushi Salmão Grelhado" data-price="28.90" data-icon="🍣">
-      <div class="product-img">🍣</div>
+      <div class="product-img" onclick="openImage(this, 'Sushi Salmão Grelhado')">
+        🍣
+        <span class="zoom-hint">🔍</span>
+      </div>
       <div class="product-info">
         <div class="product-header"><span class="product-name">Sushi Salmão Grelhado</span></div>
         <div class="product-desc">Arroz, salmão grelhado, cream cheese, alga, gergelim e cebolinha</div>
@@ -656,7 +742,10 @@
     </div>
 
     <div class="product-card" data-name="Sushi Camarão" data-price="33.90" data-icon="🍤">
-      <div class="product-img">🍤</div>
+      <div class="product-img" onclick="openImage(this, 'Sushi Camarão')">
+        🍤
+        <span class="zoom-hint">🔍</span>
+      </div>
       <div class="product-info">
         <div class="product-header">
           <span class="product-name">Sushi Camarão</span>
@@ -674,7 +763,10 @@
     </div>
 
     <div class="product-card" data-name="Sushi Califórnia" data-price="27.90" data-icon="🥗">
-      <div class="product-img">🥗</div>
+      <div class="product-img" onclick="openImage(this, 'Sushi Califórnia')">
+        🥗
+        <span class="zoom-hint">🔍</span>
+      </div>
       <div class="product-info">
         <div class="product-header">
           <span class="product-name">Sushi Califórnia</span>
@@ -692,11 +784,15 @@
     </div>
   </div>
 
+  <!-- HOT -->
   <div id="cat-hot" class="cat-section hidden">
     <div class="section-title">🔥 Hot Holl & Hot Maki</div>
 
     <div class="product-card" data-name="Hot Holl Salmão Cru" data-price="31.90" data-icon="🔥">
-      <div class="product-img">🔥</div>
+      <div class="product-img" onclick="openImage(this, 'Hot Holl Salmão Cru')">
+        🔥
+        <span class="zoom-hint">🔍</span>
+      </div>
       <div class="product-info">
         <div class="product-header"><span class="product-name">Hot Holl Salmão Cru</span></div>
         <div class="product-desc">Arroz, salmão cru, alga, cream cheese, gergelim e cebolinha</div>
@@ -711,7 +807,10 @@
     </div>
 
     <div class="product-card" data-name="Hot Holl Salmão Grelhado" data-price="31.90" data-icon="🔥">
-      <div class="product-img">🔥</div>
+      <div class="product-img" onclick="openImage(this, 'Hot Holl Salmão Grelhado')">
+        🔥
+        <span class="zoom-hint">🔍</span>
+      </div>
       <div class="product-info">
         <div class="product-header"><span class="product-name">Hot Holl Salmão Grelhado</span></div>
         <div class="product-desc">Arroz, salmão grelhado, alga, cream cheese, gergelim e cebolinha</div>
@@ -726,7 +825,10 @@
     </div>
 
     <div class="product-card" data-name="Hot Maki Salmão Grelhado" data-price="36.90" data-icon="🌯">
-      <div class="product-img">🌯</div>
+      <div class="product-img" onclick="openImage(this, 'Hot Maki Salmão Grelhado')">
+        🌯
+        <span class="zoom-hint">🔍</span>
+      </div>
       <div class="product-info">
         <div class="product-header"><span class="product-name">Hot Maki Salmão Grelhado</span></div>
         <div class="product-desc">Temaki empanado e frito com salmão grelhado, alga, cream cheese, gergelim e cebolinha</div>
@@ -741,7 +843,10 @@
     </div>
 
     <div class="product-card" data-name="Hot Maki Camarão" data-price="39.90" data-icon="🍤">
-      <div class="product-img">🍤</div>
+      <div class="product-img" onclick="openImage(this, 'Hot Maki Camarão')">
+        🍤
+        <span class="zoom-hint">🔍</span>
+      </div>
       <div class="product-info">
         <div class="product-header">
           <span class="product-name">Hot Maki Camarão</span>
@@ -759,11 +864,15 @@
     </div>
   </div>
 
+  <!-- TEMAKI -->
   <div id="cat-temaki" class="cat-section hidden">
     <div class="section-title">🌯 Temaki</div>
 
     <div class="product-card" data-name="Temaki Salmão Cru" data-price="32.90" data-icon="🌯">
-      <div class="product-img">🌯</div>
+      <div class="product-img" onclick="openImage(this, 'Temaki Salmão Cru')">
+        🌯
+        <span class="zoom-hint">🔍</span>
+      </div>
       <div class="product-info">
         <div class="product-header"><span class="product-name">Temaki Salmão Cru</span></div>
         <div class="product-desc">Arroz, salmão cru, cream cheese, alga, gergelim e cebolinha</div>
@@ -778,7 +887,10 @@
     </div>
 
     <div class="product-card" data-name="Temaki Salmão Grelhado" data-price="32.90" data-icon="🌯">
-      <div class="product-img">🌯</div>
+      <div class="product-img" onclick="openImage(this, 'Temaki Salmão Grelhado')">
+        🌯
+        <span class="zoom-hint">🔍</span>
+      </div>
       <div class="product-info">
         <div class="product-header"><span class="product-name">Temaki Salmão Grelhado</span></div>
         <div class="product-desc">Arroz, salmão grelhado, cream cheese, alga, gergelim e cebolinha</div>
@@ -793,7 +905,10 @@
     </div>
 
     <div class="product-card" data-name="Temaki Califórnia" data-price="29.90" data-icon="🥗">
-      <div class="product-img">🥗</div>
+      <div class="product-img" onclick="openImage(this, 'Temaki Califórnia')">
+        🥗
+        <span class="zoom-hint">🔍</span>
+      </div>
       <div class="product-info">
         <div class="product-header">
           <span class="product-name">Temaki Califórnia</span>
@@ -811,15 +926,96 @@
     </div>
   </div>
 
+  <!-- BEBIDAS -->
+  <div id="cat-bebidas" class="cat-section hidden">
+    <div class="section-title">🥤 Bebidas</div>
+
+    <div class="product-card" data-name="Coca-Cola Lata 350ml" data-price="6.00" data-icon="🥤">
+      <div class="product-img" onclick="openImage(this, 'Coca-Cola Lata 350ml')">
+        🥤
+        <span class="zoom-hint">🔍</span>
+      </div>
+      <div class="product-info">
+        <div class="product-header"><span class="product-name">Coca-Cola Lata 350ml</span></div>
+        <div class="product-desc">Refrigerante Coca-Cola original, lata gelada</div>
+        <div class="product-price">R$ 6,00</div>
+        <div class="qty-controls">
+          <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+          <span class="qty-display">0</span>
+          <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+          <button class="btn-add" onclick="addToCart(this)">Adicionar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-name="Guaraná Antarctica 350ml" data-price="5.50" data-icon="🥤">
+      <div class="product-img" onclick="openImage(this, 'Guaraná Antarctica 350ml')">
+        🥤
+        <span class="zoom-hint">🔍</span>
+      </div>
+      <div class="product-info">
+        <div class="product-header"><span class="product-name">Guaraná Antarctica 350ml</span></div>
+        <div class="product-desc">Refrigerante Guaraná Antarctica, lata gelada</div>
+        <div class="product-price">R$ 5,50</div>
+        <div class="qty-controls">
+          <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+          <span class="qty-display">0</span>
+          <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+          <button class="btn-add" onclick="addToCart(this)">Adicionar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-name="Água Mineral 500ml" data-price="3.50" data-icon="💧">
+      <div class="product-img" onclick="openImage(this, 'Água Mineral 500ml')">
+        💧
+        <span class="zoom-hint">🔍</span>
+      </div>
+      <div class="product-info">
+        <div class="product-header"><span class="product-name">Água Mineral 500ml</span></div>
+        <div class="product-desc">Água mineral sem gás, garrafa 500ml gelada</div>
+        <div class="product-price">R$ 3,50</div>
+        <div class="qty-controls">
+          <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+          <span class="qty-display">0</span>
+          <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+          <button class="btn-add" onclick="addToCart(this)">Adicionar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-name="Suco de Laranja 300ml" data-price="7.00" data-icon="🧃">
+      <div class="product-img" onclick="openImage(this, 'Suco de Laranja 300ml')">
+        🧃
+        <span class="zoom-hint">🔍</span>
+      </div>
+      <div class="product-info">
+        <div class="product-header"><span class="product-name">Suco de Laranja 300ml</span></div>
+        <div class="product-desc">Suco natural de laranja, copo 300ml</div>
+        <div class="product-price">R$ 7,00</div>
+        <div class="qty-controls">
+          <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+          <span class="qty-display">0</span>
+          <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+          <button class="btn-add" onclick="addToCart(this)">Adicionar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMBOS -->
   <div id="cat-combos" class="cat-section hidden">
     <div class="section-title">💚 Combos e Promoções</div>
 
     <div class="product-card" data-name="Combo Casal" data-price="74.90" data-icon="🍔">
-      <div class="product-img">🍔</div>
+      <div class="product-img" onclick="openImage(this, 'Combo Casal')">
+        🍔
+        <span class="zoom-hint">🔍</span>
+      </div>
       <div class="product-info">
         <div class="product-header">
           <span class="product-name">Combo Casal</span>
-          <span class="tag tag-enc">🔥 Mais vendido</span>
+          <span class="tag tag-promo">🔥 Mais vendido</span>
         </div>
         <div class="product-desc">2 Lanshis (cru ou grelhado) + 2 Refrigerantes</div>
         <div class="product-price">R$ 74,90 <span style="font-size:12px;color:#555;text-decoration:line-through;">R$ 84,80</span></div>
@@ -833,7 +1029,10 @@
     </div>
 
     <div class="product-card" data-name="Combo Green" data-price="64.90" data-icon="🍄">
-      <div class="product-img">🍄</div>
+      <div class="product-img" onclick="openImage(this, 'Combo Green')">
+        🍄
+        <span class="zoom-hint">🔍</span>
+      </div>
       <div class="product-info">
         <div class="product-header">
           <span class="product-name">Combo Green</span>
@@ -865,9 +1064,90 @@
       </div>
     </div>
   </div>
-
 </div>
 
+ <!-- ONIGIRI -->
+  <div id="cat-onigiri" class="cat-section hidden">
+    <div class="section-title">🍙 Onigiri</div>
+
+    <div class="product-card" data-name="Onigiri de Salmão Cru" data-price="12,90" data-icon="🍙">
+      <div class="product-img" onclick="openImage(this, 'Onigiri de Salmão Cru')">
+        🍙
+        <span class="zoom-hint">🔍</span>
+      </div>
+      <div class="product-info">
+        <div class="product-header"><span class="product-name">Onigiri de Salmão Cru</span></div>
+        <div class="product-desc">Arroz, Alga, Gergelim, Salmão Cru e Cream cheese</div>
+        <div class="product-price">R$ 12,90</div>
+        <div class="qty-controls">
+          <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+          <span class="qty-display">0</span>
+          <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+          <button class="btn-add" onclick="addToCart(this)">Adicionar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-name="Onigiri de Salmão Grelhado" data-price="12.90" data-icon="🍙">
+      <div class="product-img" onclick="openImage(this, 'Onigiri de Salmão Grelhado')">
+        🍙
+        <span class="zoom-hint">🔍</span>
+      </div>
+      <div class="product-info">
+        <div class="product-header"><span class="product-name">Onigiri de Salmão Grelhado</span></div>
+        <div class="product-desc">Arroz, Alga, Gergelim, Salmão Cru e Cream cheese</div>
+        <div class="product-price">R$ 12,90</div>
+        <div class="qty-controls">
+          <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+          <span class="qty-display">0</span>
+          <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+          <button class="btn-add" onclick="addToCart(this)">Adicionar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+ <!-- YAKISOBA -->
+  <div id="cat-yakisoba" class="cat-section hidden">
+    <div class="section-title">🍜 Yakisoba</div>
+
+    <div class="product-card" data-name="Yakisoba de Frango" data-price="32.90" data-icon="🍜">
+      <div class="product-img" onclick="openImage(this, 'Yakisoba de Frango')">
+        🍜
+        <span class="zoom-hint">🔍</span>
+      </div>
+      <div class="product-info">
+        <div class="product-header"><span class="product-name">Yakisoba de Frango</span></div>
+        <div class="product-desc">Macarrão oriental, frango, legumes salteados no molho shoyu especial</div>
+        <div class="product-price">R$ 32,90</div>
+        <div class="qty-controls">
+          <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+          <span class="qty-display">0</span>
+          <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+          <button class="btn-add" onclick="addToCart(this)">Adicionar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-name="Yakisoba de Carne" data-price="35.90" data-icon="🍜">
+      <div class="product-img" onclick="openImage(this, 'Yakisoba de Carne')">
+        🍜
+        <span class="zoom-hint">🔍</span>
+      </div>
+      <div class="product-info">
+        <div class="product-header"><span class="product-name">Yakisoba de Carne</span></div>
+        <div class="product-desc">Macarrão oriental, carne bovina, legumes salteados no molho shoyu especial</div>
+        <div class="product-price">R$ 35,90</div>
+        <div class="qty-controls">
+          <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+          <span class="qty-display">0</span>
+          <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+          <button class="btn-add" onclick="addToCart(this)">Adicionar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
 <!-- CART DRAWER -->
 <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
 <div class="cart-drawer" id="cartDrawer">
@@ -890,7 +1170,16 @@
   </div>
 </div>
 
-<!-- FOOTER WHATSAPP -->
+<!-- IMAGE MODAL -->
+<div class="img-modal-overlay" id="imgModal" onclick="closeImage()">
+  <div class="img-modal-content" onclick="event.stopPropagation()">
+    <button class="img-modal-close" onclick="closeImage()">✕</button>
+    <img id="modalImg" src="" alt="">
+    <div class="img-modal-caption" id="modalCaption"></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
 <div class="footer-fixed">
   <button class="btn-whatsapp" onclick="openCart()">
     <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -980,15 +1269,33 @@
           <div class="cart-item-info">
             <div class="cart-item-name">${item.name}</div>
             <div class="cart-item-price">R$ ${item.price.toFixed(2).replace('.', ',')}</div>
-            <div class="cart-item-qty">Qtd: ${item.qty}</div>
+            <div class="cart-item-qty-row">
+              <button class="cart-qty-btn" onclick="cartChangeQty(${index}, -1)">−</button>
+              <span class="cart-qty-display">${item.qty}</span>
+              <button class="cart-qty-btn" onclick="cartChangeQty(${index}, 1)">+</button>
+            </div>
           </div>
           <div class="cart-item-total">R$ ${itemTotal.toFixed(2).replace('.', ',')}</div>
+          <button class="cart-item-remove" onclick="cartRemoveItem(${index})" title="Remover item">🗑️</button>
         </div>
       `;
     });
 
     container.innerHTML = html;
     totalEl.textContent = 'R$ ' + total.toFixed(2).replace('.', ',');
+  }
+
+  function cartChangeQty(index, delta) {
+    cart[index].qty += delta;
+    if (cart[index].qty <= 0) {
+      cart.splice(index, 1);
+    }
+    updateCartUI();
+  }
+
+  function cartRemoveItem(index) {
+    cart.splice(index, 1);
+    updateCartUI();
   }
 
   function openCart() {
@@ -1028,6 +1335,30 @@
 
     const url = 'https://wa.me/' + numero + '?text=' + encodeURIComponent(msg);
     window.open(url, '_blank');
+  }
+
+  // IMAGE MODAL
+  function openImage(el, caption) {
+    const modal = document.getElementById('imgModal');
+    const modalImg = document.getElementById('modalImg');
+    const modalCaption = document.getElementById('modalCaption');
+
+    // Check if there's an img inside, otherwise use emoji placeholder
+    const img = el.querySelector('img');
+    if (img) {
+      modalImg.src = img.src;
+    } else {
+      // For now, show a placeholder. When real images are added, this will work automatically
+      modalImg.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="300" height="300"%3E%3Crect fill="%23222" width="300" height="300"/%3E%3Ctext fill="%23f5a623" font-family="sans-serif" font-size="60" font-weight="bold" x="50%25" y="50%25" text-anchor="middle" dy=".3em"%3E' + encodeURIComponent(el.textContent.trim().replace('🔍', '').trim()) + '%3C/text%3E%3C/svg%3E';
+    }
+    modalCaption.textContent = caption;
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeImage() {
+    document.getElementById('imgModal').classList.remove('open');
+    document.body.style.overflow = '';
   }
 </script>
 
