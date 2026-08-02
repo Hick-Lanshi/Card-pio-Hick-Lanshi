@@ -589,10 +589,12 @@
   <div class="cat-btn" onclick="showCat('sushi', this)">🍣 Sushi</div>
   <div class="cat-btn" onclick="showCat('hot', this)">🔥 Hot</div>
   <div class="cat-btn" onclick="showCat('temaki', this)">🌯 Temaki</div>
+  <div class="cat-btn" onclick="showCat('copoke', this)">🥛 Copoke</div>
   <div class="cat-btn" onclick="showCat('bebidas', this)">🥤 Bebidas</div>
   <div class="cat-btn" onclick="showCat('combos', this)">💚 Combos</div>
   <div class="cat-btn" onclick="showCat('yakisoba', this)">🍜 Yakisoba</div>
   <div class="cat-btn" onclick="showCat('onigiri', this)">🍙 Onigiri</div>
+ 
 </div>
 
 <div class="content">
@@ -904,14 +906,14 @@
       </div>
     </div>
 
-    <div class="product-card" data-name="Temaki Califórnia" data-price="29.90" data-icon="🥗">
-      <div class="product-img" onclick="openImage(this, 'Temaki Califórnia')">
+    <div class="product-card" data-name="Temaki Vegetariano" data-price="29.90" data-icon="🥗">
+      <div class="product-img" onclick="openImage(this, 'Temaki Vegetariano')">
         🥗
         <span class="zoom-hint">🔍</span>
       </div>
       <div class="product-info">
         <div class="product-header">
-          <span class="product-name">Temaki Califórnia</span>
+          <span class="product-name">Temaki Vegetariano</span>
           <span class="tag tag-veg">Vegetariano</span>
         </div>
         <div class="product-desc">Arroz, alga, cream cheese, shimeji, pepino, manga, cenoura, gergelim e cebolinha</div>
@@ -926,54 +928,61 @@
     </div>
   </div>
 
+ <!-- COPOKE -->
+  <div id="cat-copoke" class="cat-section hidden">
+    <div class="section-title">🥛 Copoke</div>
+
+    <div class="product-card" data-name="Copoke Salmão Cru" data-price="36.90" data-icon="🥛">
+      <div class="product-img" onclick="openImage(this, 'Copoke Salmão Cru')">
+        🥛
+        <span class="zoom-hint">🔍</span>
+      </div>
+      <div class="product-info">
+        <div class="product-header"><span class="product-name">Copoke Salmão Cru</span></div>
+        <div class="product-desc">Arroz, Gergelim, Salmão Cru, Cebolinha, Cream cheese e Alga por cima</div>
+        <div class="product-price">R$ 36,90</div>
+        <div class="qty-controls">
+          <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+          <span class="qty-display">0</span>
+          <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+          <button class="btn-add" onclick="addToCart(this)">Adicionar</button>
+        </div>
+      </div>
+    </div>
+
+     <div id="cat-copoke" class="cat-section hidden">
+    <div class="section-title">🥛 Copoke Salmão Grelhado</div>
+
+    <div class="product-card" data-name="Copoke Salmão Grelhado" data-price="36.90" data-icon="🥛">
+      <div class="product-img" onclick="openImage(this, 'Copoke Salmão Grelhado')">
+        🥛
+        <span class="zoom-hint">🔍</span>
+      </div>
+      <div class="product-info">
+        <div class="product-header"><span class="product-name">Copoke</span></div>
+        <div class="product-desc">Arroz, Gergelim, Salmão Grelhado, Cebolinha, Cream cheese e Alga por cima</div>
+        <div class="product-price">R$ 36,90</div>
+        <div class="qty-controls">
+          <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+          <span class="qty-display">0</span>
+          <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+          <button class="btn-add" onclick="addToCart(this)">Adicionar</button>
+        </div>
+      </div>
+    </div>
+      
   <!-- BEBIDAS -->
   <div id="cat-bebidas" class="cat-section hidden">
     <div class="section-title">🥤 Bebidas</div>
 
-    <div class="product-card" data-name="Coca-Cola Lata 350ml" data-price="6.00" data-icon="🥤">
-      <div class="product-img" onclick="openImage(this, 'Coca-Cola Lata 350ml')">
+    <div class="product-card" data-name="Coca-Cola 200ml" data-price="3.50" data-icon="🥤">
+      <div class="product-img" onclick="openImage(this, 'Coca-Cola 200ml')">
         🥤
         <span class="zoom-hint">🔍</span>
       </div>
       <div class="product-info">
-        <div class="product-header"><span class="product-name">Coca-Cola Lata 350ml</span></div>
-        <div class="product-desc">Refrigerante Coca-Cola original, lata gelada</div>
-        <div class="product-price">R$ 6,00</div>
-        <div class="qty-controls">
-          <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
-          <span class="qty-display">0</span>
-          <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
-          <button class="btn-add" onclick="addToCart(this)">Adicionar</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="product-card" data-name="Guaraná Antarctica 350ml" data-price="5.50" data-icon="🥤">
-      <div class="product-img" onclick="openImage(this, 'Guaraná Antarctica 350ml')">
-        🥤
-        <span class="zoom-hint">🔍</span>
-      </div>
-      <div class="product-info">
-        <div class="product-header"><span class="product-name">Guaraná Antarctica 350ml</span></div>
-        <div class="product-desc">Refrigerante Guaraná Antarctica, lata gelada</div>
-        <div class="product-price">R$ 5,50</div>
-        <div class="qty-controls">
-          <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
-          <span class="qty-display">0</span>
-          <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
-          <button class="btn-add" onclick="addToCart(this)">Adicionar</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="product-card" data-name="Água Mineral 500ml" data-price="3.50" data-icon="💧">
-      <div class="product-img" onclick="openImage(this, 'Água Mineral 500ml')">
-        💧
-        <span class="zoom-hint">🔍</span>
-      </div>
-      <div class="product-info">
-        <div class="product-header"><span class="product-name">Água Mineral 500ml</span></div>
-        <div class="product-desc">Água mineral sem gás, garrafa 500ml gelada</div>
+        <div class="product-header"><span class="product-name">Coca-Cola 200ml</span></div>
+        <div class="product-desc">Refrigerante Coca-Cola original, Caçulinha 200ml</div>
         <div class="product-price">R$ 3,50</div>
         <div class="qty-controls">
           <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
@@ -984,15 +993,15 @@
       </div>
     </div>
 
-    <div class="product-card" data-name="Suco de Laranja 300ml" data-price="7.00" data-icon="🧃">
-      <div class="product-img" onclick="openImage(this, 'Suco de Laranja 300ml')">
-        🧃
+    <div class="product-card" data-name="Guaraná Antarctica 200ml" data-price="3.50" data-icon="🥤">
+      <div class="product-img" onclick="openImage(this, 'Guaraná Antarctica 200ml')">
+        🥤
         <span class="zoom-hint">🔍</span>
       </div>
       <div class="product-info">
-        <div class="product-header"><span class="product-name">Suco de Laranja 300ml</span></div>
-        <div class="product-desc">Suco natural de laranja, copo 300ml</div>
-        <div class="product-price">R$ 7,00</div>
+        <div class="product-header"><span class="product-name">Guaraná Antarctica 200ml</span></div>
+        <div class="product-desc">Refrigerante Guaraná Antarctica, Caçulinha 200ml</div>
+        <div class="product-price">R$ 3,50</div>
         <div class="qty-controls">
           <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
           <span class="qty-display">0</span>
@@ -1001,23 +1010,100 @@
         </div>
       </div>
     </div>
-  </div>
 
+    <div class="product-card" data-name="Água Mineral 500ml" data-price="3.00" data-icon="💧">
+      <div class="product-img" onclick="openImage(this, 'Água Mineral 500ml')">
+        💧
+        <span class="zoom-hint">🔍</span>
+      </div>
+      <div class="product-info">
+        <div class="product-header"><span class="product-name">Água Mineral 500ml</span></div>
+        <div class="product-desc">Água mineral sem gás, garrafa 500ml</div>
+        <div class="product-price">R$ 3,00</div>
+        <div class="qty-controls">
+          <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+          <span class="qty-display">0</span>
+          <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+          <button class="btn-add" onclick="addToCart(this)">Adicionar</button>
+        </div>
+      </div>
+    </div>
+
+       <div class="product-card" data-name="Água Mineral C/ Gás 500ml" data-price="4.00" data-icon="💧">
+      <div class="product-img" onclick="openImage(this, 'Água Mineral C/ Gás 500ml')">
+        💧
+        <span class="zoom-hint">🔍</span>
+      </div>
+      <div class="product-info">
+        <div class="product-header"><span class="product-name">Água Mineral C/ Gás 500ml</span></div>
+        <div class="product-desc">Água mineral com gás, garrafa 500ml</div>
+        <div class="product-price">R$ 4,00</div>
+        <div class="qty-controls">
+          <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+          <span class="qty-display">0</span>
+          <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+          <button class="btn-add" onclick="addToCart(this)">Adicionar</button>
+        </div>
+      </div>
+    </div>
+   
   <!-- COMBOS -->
   <div id="cat-combos" class="cat-section hidden">
     <div class="section-title">💚 Combos e Promoções</div>
 
-    <div class="product-card" data-name="Combo Casal" data-price="74.90" data-icon="🍔">
+    <div class="product-card" data-name="Combo Solo" data-price="36.90" data-icon="🍔🥤">
+      <div class="product-img" onclick="openImage(this, 'Combo Solo')">
+        🍔🥤
+        <span class="zoom-hint">🔍</span>
+      </div>
+      <div class="product-info">
+        <div class="product-header">
+          <span class="product-name">Combo Solo</span>
+          <span class="tag tag-promo">🔥 O mais vendido!</span>
+        </div>
+        <div class="product-desc">1 Lanshi (cru ou grelhado) + 1 Refrigerante 200ml</div>
+        <div class="product-price">R$ 36,90<span style="font-size:12px;color:#555;text-decoration:line-through;">R$ 38,40</span></div>
+        <div class="qty-controls">
+          <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+          <span class="qty-display">0</span>
+          <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+          <button class="btn-add" onclick="addToCart(this)">Adicionar</button>
+        </div>
+      </div>
+    </div>
+   
+    <div class="product-card" data-name="Combo Duplinha" data-price="49,90" data-icon="🍔🌯">
+      <div class="product-img" onclick="openImage(this, 'Combo Duplinha')">
+        🍔🌯
+        <span class="zoom-hint">🔍</span>
+      </div>
+      <div class="product-info">
+        <div class="product-header">
+          <span class="product-name">Combo Duplinha</span>
+          <span class="tag tag-promo">🥇 O Preferido</span>
+        </div>
+        <div class="product-desc">1 Lanshi (cru ou grelhado) + meia porção de Hot-Holl (5 Unidades)</div>
+        <div class="product-price">R$ 49,90 <span style="font-size:12px;color:#555;text-decoration:line-through;">R$ 57,80</span></div>
+        <div class="qty-controls">
+          <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+          <span class="qty-display">0</span>
+          <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+          <button class="btn-add" onclick="addToCart(this)">Adicionar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-name="Combo Casal" data-price="74.90" data-icon="🍔🍔">
       <div class="product-img" onclick="openImage(this, 'Combo Casal')">
-        🍔
+        🍔🍔
         <span class="zoom-hint">🔍</span>
       </div>
       <div class="product-info">
         <div class="product-header">
           <span class="product-name">Combo Casal</span>
-          <span class="tag tag-promo">🔥 Mais vendido</span>
+          <span class="tag tag-promo">❤️ Fechamento</span>
         </div>
-        <div class="product-desc">2 Lanshis (cru ou grelhado) + 2 Refrigerantes</div>
+        <div class="product-desc">2 Lanshis (cru ou grelhado) + 2 Refrigerantes 200ml</div>
         <div class="product-price">R$ 74,90 <span style="font-size:12px;color:#555;text-decoration:line-through;">R$ 84,80</span></div>
         <div class="qty-controls">
           <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
@@ -1027,7 +1113,7 @@
         </div>
       </div>
     </div>
-
+   
     <div class="product-card" data-name="Combo Green" data-price="64.90" data-icon="🍄">
       <div class="product-img" onclick="openImage(this, 'Combo Green')">
         🍄
@@ -1038,7 +1124,7 @@
           <span class="product-name">Combo Green</span>
           <span class="tag tag-veg">Vegetariano</span>
         </div>
-        <div class="product-desc">1 Lanshi de Shimeji + 1 Sushi Califórnia + 1 Refrigerante</div>
+        <div class="product-desc">1 Lanshi de Shimeji + 1 Sushi Califórnia + 1 Refrigerante 200ml</div>
         <div class="product-price">R$ 64,90 <span style="font-size:12px;color:#555;text-decoration:line-through;">R$ 72,80</span></div>
         <div class="qty-controls">
           <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
@@ -1048,23 +1134,6 @@
         </div>
       </div>
     </div>
-
-    <div class="pay-section">
-      <div class="pay-title">💳 Formas de pagamento</div>
-      <div class="pay-pills">
-        <span class="pay-pill">💠 Pix</span>
-        <span class="pay-pill">💳 Cartão</span>
-        <span class="pay-pill">💵 Dinheiro</span>
-      </div>
-      <div class="info-text">
-        🛵 Entregamos no Conjunto do Bosque e região<br>
-        📍 Mogi das Cruzes — SP<br>
-        ⏰ Sexta a Domingo, a partir das 19h<br>
-        📱 Encomendas pelo WhatsApp a qualquer hora
-      </div>
-    </div>
-  </div>
-</div>
 
  <!-- ONIGIRI -->
   <div id="cat-onigiri" class="cat-section hidden">
@@ -1158,6 +1227,19 @@
   <div class="cart-items" id="cartItems">
     <div class="cart-empty">Seu carrinho está vazio.<br>Adicione itens do cardápio!</div>
   </div>
+     <div class="pay-section">
+      <div class="pay-title">💳 Formas de pagamento</div>
+      <div class="pay-pills">
+        <span class="pay-pill">💠 Pix</span>
+        <span class="pay-pill">💳 Cartão</span>
+        <span class="pay-pill">💵 Dinheiro</span>
+      </div>
+      <div class="info-text">
+        🛵 Entregamos no Conjunto do Bosque e região<br>
+        📍 Mogi das Cruzes — SP<br>
+        ⏰ Sexta a Domingo, a partir das 19h<br>
+        📱 Encomendas pelo WhatsApp a qualquer hora
+      </div>
   <div class="cart-footer">
     <div class="cart-total-row">
       <span class="cart-total-label">Total</span>
